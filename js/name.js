@@ -6,6 +6,7 @@ const name = document.querySelector('.js-name'),
 function saveUser(){
     localStorage.setItem('currentUser', input.value);
 }
+
 function handleSubmit(e){
     e.preventDefault();
     painting(input.value);
@@ -27,8 +28,10 @@ function getCurrentUser(){
         painting(user);
     }
 }
+
 function init(){
     getCurrentUser();
     name.addEventListener('submit', handleSubmit);
 }
+
 init();
