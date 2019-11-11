@@ -1,6 +1,6 @@
 const name = document.querySelector('.js-name'),
     input = name.querySelector('input'),
-    output = document.querySelector('.js-div'),
+    output = document.querySelector('.js-user'),
     todo = document.querySelector('.js-todo');
 
 function saveUser(){
@@ -13,11 +13,11 @@ function handleSubmit(e){
 }
 
 function painting(user){
-    const h1 = document.createElement('h1');
-    h1.innerHTML = `Hello ${user}`;
+    const div = document.createElement('div');
+    div.innerHTML = `Hello ${user}`;
     name.className = 'hiding';
     todo.classList.remove('hiding');
-    output.appendChild(h1);
+    output.appendChild(div);
 }
 
 function getCurrentUser(){
