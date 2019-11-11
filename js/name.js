@@ -3,17 +3,17 @@ const name = document.querySelector('.js-name'),
     output = document.querySelector('.js-user'),
     todo = document.querySelector('.js-todo');
 
-function saveUser(){
+function saveUser() {
     localStorage.setItem('currentUser', input.value);
 }
 
-function handleSubmit(e){
+function handleSubmit(e) {
     e.preventDefault();
     painting(input.value);
     saveUser();
 }
 
-function painting(user){
+function painting(user) {
     const div = document.createElement('div');
     const hour = (new Date).getHours();
     div.innerHTML = `${(hour >+ 18) ? `Good evening` : 
@@ -24,14 +24,14 @@ function painting(user){
     output.appendChild(div);
 }
 
-function getCurrentUser(){
+function getCurrentUser() {
     const user = localStorage.getItem('currentUser');
-    if(user !== null){
+    if (user !== null) {
         painting(user);
     }
 }
 
-function init(){
+function init() {
     getCurrentUser();
     name.addEventListener('submit', handleSubmit);
 }

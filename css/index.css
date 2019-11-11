@@ -1,4 +1,4 @@
-html{
+html {
     font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
     left: 0;
@@ -17,17 +17,14 @@ h1 {
     margin-bottom: 0;
 }
 
-ul{
+ul {
     display: inline-block;
     list-style: decimal;
-    padding-left:0px;
+    padding-left: 0px;
     /* border: red solid; */
 }
 
-
-
 section {
-    
     text-align: center;
     position: absolute;
     color: white;
@@ -53,7 +50,7 @@ section {
     font-size: 3rem;
 }
 
-.js-todo{
+.js-todo {
     font-size: 1.3rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -85,9 +82,9 @@ section {
     margin-top: 1rem;
 }
 
-.js-input:focus  {
-    outline:none;
-    color : white;
+.js-input:focus {
+    outline: none;
+    color: white;
 }
 
 .hiding {
@@ -97,4 +94,3 @@ section {
 .showing {
     display: block;
 }
-

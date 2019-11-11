@@ -1,6 +1,6 @@
 const clock = document.querySelector(".js-clock");
 
-function getTime(){
+function getTime() {
     const currentTime = new Date;
     const currentHour = currentTime.getHours();
     const currentMinutes = currentTime.getMinutes();
@@ -8,7 +8,7 @@ function getTime(){
         (currentMinutes < 10) ? `0${currentMinutes}` : currentMinutes }`
 }
 
-function init(){
+function init() {
     getTime();
     setInterval(getTime, 1000);
 }
