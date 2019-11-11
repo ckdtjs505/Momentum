@@ -15,7 +15,10 @@ function handleSubmit(e){
 
 function painting(user){
     const div = document.createElement('div');
-    div.innerHTML = `Hello ${user}`;
+    const hour = (new Date).getHours();
+    div.innerHTML = `${(hour >+ 18) ? `Good evening` : 
+    (hour <18 && hour >+ 12) ? `Good afternoon` :
+    (hour < 12) ? `Good Morning` : '' }, ${user}.`;
     name.className = 'hiding';
     todo.classList.remove('hiding');
     output.appendChild(div);
@@ -23,7 +26,6 @@ function painting(user){
 
 function getCurrentUser(){
     const user = localStorage.getItem('currentUser');
-    // console.log(user);
     if(user !== null){
         painting(user);
     }
