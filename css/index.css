@@ -8,22 +8,22 @@ ul{
     padding-left:0px;
 }
 
-body {
-    height: 99vh;   margin: 0;
+section {
     text-align: center;
-    border: black solid;
+    border:  solid;
+    background-color: rgba(255,255,255,0.2);
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    width: 50%;
-    height: 50%;
+    width: 35rem;
+    height: 25rem;
     margin: auto;
 }
 
 .js-clock {
-    font-size: 5rem;
+    font-size: 8rem;
     font-weight: bold;
     margin: 0;
 }
@@ -33,6 +33,7 @@ body {
 }
 
 .js-todo{
+    font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
 }
@@ -42,7 +43,16 @@ body {
     margin: 0 auto;
 }
 
-
+.backgroundImg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 .hiding {
     display: none;
 }
