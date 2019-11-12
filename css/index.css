@@ -94,3 +94,10 @@ section {
 .showing {
     display: block;
 }
+
+.weather {
+    color: white;
+    height: 5rem;
+    font-size: 120%;
+    text-align: right;
+}
