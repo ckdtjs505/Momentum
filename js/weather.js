@@ -1,5 +1,19 @@
-const COORDS = 'coords';
+const weather = document.querySelector('#js-weather');
+const API_KEY = "1223fc278a86f6dc1166701059d6b418";
+const COORDS = "coords";
 
+/* 
+    2019.11.12
+    개발내용
+    1) 현재위치 가져오기 
+     - Web API : navigator
+    2) 현재위치를 지역이름, 실시간 현위치온도 가져오기
+     - fetch 비동기 호출 
+    
+    다음에 개발해야할 것
+     - 디자인 CSS 개발
+    
+*/
 function saveCoords(coordsObj) {
     localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
@@ -12,6 +26,8 @@ function getSuccess(postion) {
         longitude
     };
     saveCoords(coordsObjs);
+    getWeather(latitude, longitude);
+
 }
 
 function getError() {
@@ -22,13 +38,24 @@ function askGeo() {
     navigator.geolocation.getCurrentPosition(getSuccess, getError);
 }
 
+function paintWeather(name, temp) {
+    weather.innerHTML = `${name} ${temp}`
+}
+
+function getWeather(lat, lon) {
+    const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => paintWeather(data.name, data.main.temp))
+}
+
 function loadGeolocation() {
     const loadedGeolocation = localStorage.getItem(COORDS);
     if (loadedGeolocation === null) {
         askGeo();
     } else {
-        const pos = JSON.parse(loadedGeo);
-        console.log(pos);
+        const pos = JSON.parse(loadedGeolocation);
+        getWeather(pos.latitude, pos.longitude);
     }
 }
 
