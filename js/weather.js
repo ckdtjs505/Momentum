@@ -41,8 +41,14 @@ function askGeo() {
 }
 
 function paintWeather(name, temp) {
-  weather.innerHTML = ` ${Math.ceil(temp - 273.15)}°C ${name},`;
-  weather.className = "weather";
+  const divArea = document.createElement('div');
+  const divTemp = document.createElement('div');
+  divTemp.innerHTML = `${Math.ceil(temp - 273.15)}° `
+  divArea.innerHTML = `${name}`;
+  divTemp.className = "weather";
+  divArea.className = "area";
+  weather.appendChild(divTemp);
+  divTemp.appendChild(divArea);
 }
 
 function getWeather(lat, lon) {

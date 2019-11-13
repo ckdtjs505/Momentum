@@ -98,6 +98,11 @@ section {
 .weather {
     color: white;
     height: 5rem;
-    font-size: 120%;
+    font-size: 1.625em;
     text-align: right;
+    margin : 0.8rem;
+}
+
+.area {
+    font-size: 65%;
 }
