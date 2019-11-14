@@ -1,8 +1,9 @@
-const name = document.querySelector('.js-name'),
-    input = name.querySelector('input'),
-    output = document.querySelector('.js-user'),
+const nameInputForm = document.querySelector('.js-name'),
+    input = nameInputForm.querySelector('input'),
+    greetingUser = document.querySelector('.js-user'),
     todo = document.querySelector('.js-todo');
 
+let userNameValue = '';
 function saveUser() {
     localStorage.setItem('currentUser', input.value);
 }
@@ -13,41 +14,64 @@ function handleSubmit(e) {
     saveUser();
 }
 
-function userClickHandle(e) {
-    const userContext = document.createElement('strong');
-    console.dir(userContext)
+function handleUserSubmit(e) {
+    e.preventDefault();
+    const inputUserName = document.querySelector('.inputUserName');
+    console.log(inputUserName.value);
+    paintUser(inputUserName.value);
+    inputUserName.remove();
+    localStorage.setItem('currentUser', inputUserName.value);
 }
 
-function painting(user) {
-    const div = document.createElement('div');
+function userClickHandle(e) {
+    const userName = greetingUser.querySelector('.userName');
+    const greeting = greetingUser.querySelector('span');
+    const form = document.createElement('form');
+    const inputUserName = document.createElement('input');
+    inputUserName.value = userName.innerHTML;
+    userName.remove();
+    inputUserName.className = 'inputUserName'
+    // greeting.appendChild(inputUserName);
+    form.className ="inline";
+    greeting.appendChild(form);
+
+    form.appendChild(inputUserName);
+    form.addEventListener('submit',handleUserSubmit)
+}
+
+function paintGreeting() {
+    const greeting = document.createElement('span');
     const hour = (new Date).getHours();
-    const userContext = document.createElement('strong');
-    div.innerHTML = `${(hour >+ 18) ? `Good evening` : 
+    greeting.innerHTML = `${(hour >+ 18) ? `Good evening` : 
     (hour <18 && hour >+ 12) ? `Good afternoon` :
     (hour < 12) ? `Good Morning` : '' }, `;
-    userContext.innerHTML = `${user}.`
+    greetingUser.prepend(greeting);
+}
 
-   
-    userContext.className = 'userName';
-    name.className = 'hiding';
+function paintUser(user) {
+    const userName = document.createElement('strong');
+    userName.innerHTML = `${user}`
+    userName.className = 'userName';
+    nameInputForm.className = 'hiding';
     todo.classList.remove('hiding');
-    div.appendChild(userContext);
-    output.appendChild(div);
-
-
-    userContext.addEventListener('click', userClickHandle)
+    greetingUser.appendChild(userName);
+    userName.addEventListener('click', userClickHandle)
+}
+function painting(user) {
+    paintGreeting();
+    paintUser(user);
 }
 
 function getCurrentUser() {
     const user = localStorage.getItem('currentUser');
-    if (user !== null) {
+    if ( user !== null ) {
         painting(user);
     }
 }
 
 function init() {
     getCurrentUser();
-    name.addEventListener('submit', handleSubmit);
+    nameInputForm.addEventListener('submit', handleSubmit);
 }
 
 init();

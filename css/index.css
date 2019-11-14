@@ -115,3 +115,26 @@ section {
 .area {
     font-size: 65%;
 }
+
+
+.inputUserName{
+    margin: 0 auto;
+    width: 13rem;
+    background: 0;
+    border: 0;
+    border-bottom: 2px solid #fff;
+    font-weight: 500;
+    text-align: center;
+    font-size: 80%;
+    color:white;
+    line-height: 120%;
+
+}
+.inputUserName:focus {
+    outline: none;
+    color: white;
+}
+
+.inline{
+    display: inline;
+}
