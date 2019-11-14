@@ -21,9 +21,9 @@ function handleUserSubmit(e) {
     const userValue =  inputUserName.value.replace(/(^\s*)|(\s*$)/g, "") ;
 
     if( userValue === ''){
-        paintUser(user);
+        createUser(user);
     }else {
-        paintUser(userValue);
+        createUser(userValue);
         localStorage.setItem('currentUser', userValue);
     }
     inputUserName.remove();
