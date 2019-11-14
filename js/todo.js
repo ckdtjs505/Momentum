@@ -1,4 +1,4 @@
-const todoinput = todo.querySelector('input'),
+const todoinput = todoForm.querySelector('input'),
     list = document.querySelector('.js-list');
 
 let datalist = [];
@@ -9,13 +9,15 @@ function saveDatalist(datalist) {
 
 function handleClick(e) {
     const todoQeus = document.querySelector('.todoQeus');
-    const todoHead = todo.querySelector('.todoHead');
+    const todoHead = todoForm.querySelector('.todoHead');
     const parentButton = e.target.parentNode;
 
-    datalist = datalist.filter(function (data) {
-        return data.data != e.target.previousSibling.data;
-    })
-    saveDatalist(datalist);
+    // datalist = datalist.filter(function (data) {
+    //     return data.data != e.target.previousSibling.data;
+    // })
+    
+    datalist = [];
+    localStorage.setItem('currentList', datalist);
     todoQeus.classList.remove('hiding');
     todoinput.classList.remove('hiding');
     todoHead.remove();
@@ -39,18 +41,22 @@ function createHead() {
     todoHead.className = 'todoHead';
     todoQeus.classList.add('hiding');
     todoinput.classList.add('hiding');
-    todo.appendChild(todoHead);
+    todoForm.appendChild(todoHead);
 }
 function handleTodoSubmit(e) {
     e.preventDefault();
-    createHead();
-    createlist(todoinput.value);
-    const addList = {
-        data: todoinput.value
+    if(todoinput.value === ''){
+        alert('입력값이 없습니다');
+    }else {
+        createlist(todoinput.value);
+        const addList = {
+            data: todoinput.value
+        }
+        datalist.push(addList);
+        saveDatalist(datalist);
+        todoinput.value = '';   
+        createHead(); 
     }
-    datalist.push(addList);
-    saveDatalist(datalist);
-    todoinput.value = '';    
 }
 
 function paintingList(currentList) {
@@ -64,15 +70,13 @@ function paintingList(currentList) {
 
 function getList() {
     const currentList = localStorage.getItem('currentList');
-    if (currentList !== null) {
+    if (currentList !== null && currentList !== '') {
         paintingList(JSON.parse(currentList));
-    } else if( currentList.length === 0){
-
-    }
+    } 
 }
 
 function init() {
     getList();
-    todo.addEventListener('submit', handleTodoSubmit)
+    todoForm.addEventListener('submit', handleTodoSubmit)
 }
 init();

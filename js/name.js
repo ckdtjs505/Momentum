@@ -1,7 +1,7 @@
 const nameInputForm = document.querySelector('.js-name'),
     input = nameInputForm.querySelector('input'),
     greetingUser = document.querySelector('.js-user'),
-    todo = document.querySelector('.js-todo');
+    todoForm = document.querySelector('.js-todo');
 
 let userNameValue = '';
 function saveUser() {
@@ -36,8 +36,7 @@ function userClickHandle(e) {
     const inputUserName = document.createElement('input');
     inputUserName.value = userName.innerHTML;
     userName.remove();
-    inputUserName.className = 'inputUserName'
-    // greeting.appendChild(inputUserName);
+    inputUserName.className = 'inputUserName';
     form.className ="inline";
     greeting.appendChild(form);
 
@@ -45,7 +44,7 @@ function userClickHandle(e) {
     form.addEventListener('submit',handleUserSubmit)
 }
 
-function paintGreeting() {
+function createGreeting() {
     const greeting = document.createElement('span');
     const hour = (new Date).getHours();
     greeting.innerHTML = `${(hour >= 18) ? `Good evening` : 
@@ -54,18 +53,23 @@ function paintGreeting() {
     greetingUser.prepend(greeting);
 }
 
-function paintUser(user) {
+function createUser(user) {
     const userName = document.createElement('strong');
     userName.innerHTML = `${user}`
     userName.className = 'userName';
+
+    //delete nameInputForm
     nameInputForm.className = 'hiding';
-    todo.classList.remove('hiding');
+
+    //create TodoForm...
+    todoForm.classList.remove('hiding');
+
     greetingUser.appendChild(userName);
     userName.addEventListener('click', userClickHandle)
 }
 function painting(user) {
-    paintGreeting();
-    paintUser(user);
+    createGreeting();
+    createUser(user);
 }
 
 function getCurrentUser() {
