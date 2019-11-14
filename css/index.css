@@ -58,6 +58,15 @@ section {
     cursor: default;
 }
 
+.js-name {
+    font-size: 1.5rem;
+    cursor: default;
+}
+
+.js-name input {
+    width: 480px;
+}
+
 .userName:hover{
     border-bottom: gold solid;
 }
