@@ -18,11 +18,13 @@ function handleUserSubmit(e) {
     e.preventDefault();
     const inputUserName = document.querySelector('.inputUserName');
     const user = localStorage.getItem('currentUser');
-    if(inputUserName.value === ''){
+    const userValue =  inputUserName.value.replace(/(^\s*)|(\s*$)/g, "") ;
+
+    if( userValue === ''){
         paintUser(user);
     }else {
-        paintUser(inputUserName.value);
-        localStorage.setItem('currentUser', inputUserName.value);
+        paintUser(userValue);
+        localStorage.setItem('currentUser', userValue);
     }
     inputUserName.remove();
 }
