@@ -17,10 +17,14 @@ function handleSubmit(e) {
 function handleUserSubmit(e) {
     e.preventDefault();
     const inputUserName = document.querySelector('.inputUserName');
-    console.log(inputUserName.value);
-    paintUser(inputUserName.value);
+    const user = localStorage.getItem('currentUser');
+    if(inputUserName.value === ''){
+        paintUser(user);
+    }else {
+        paintUser(inputUserName.value);
+        localStorage.setItem('currentUser', inputUserName.value);
+    }
     inputUserName.remove();
-    localStorage.setItem('currentUser', inputUserName.value);
 }
 
 function userClickHandle(e) {
