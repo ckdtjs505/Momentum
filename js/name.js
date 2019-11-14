@@ -42,8 +42,8 @@ function userClickHandle(e) {
 function paintGreeting() {
     const greeting = document.createElement('span');
     const hour = (new Date).getHours();
-    greeting.innerHTML = `${(hour >+ 18) ? `Good evening` : 
-    (hour <18 && hour >+ 12) ? `Good afternoon` :
+    greeting.innerHTML = `${(hour >= 18) ? `Good evening` : 
+    (hour <18 && hour >= 12) ? `Good afternoon` :
     (hour < 12) ? `Good Morning` : '' }, `;
     greetingUser.prepend(greeting);
 }
