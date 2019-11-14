@@ -8,12 +8,17 @@ function saveDatalist(datalist) {
 }
 
 function handleClick(e) {
+    const todoQeus = document.querySelector('.todoQeus');
+    const todoHead = todo.querySelector('.todoHead');
     const parentButton = e.target.parentNode;
-    // console.log(e.target.previousSibling.data);
+
     datalist = datalist.filter(function (data) {
         return data.data != e.target.previousSibling.data;
     })
     saveDatalist(datalist);
+    todoQeus.classList.remove('hiding');
+    todoinput.classList.remove('hiding');
+    todoHead.remove();
     parentButton.remove();
 }
 
@@ -27,18 +32,29 @@ function createlist(value) {
     btn.addEventListener('click', handleClick);
 }
 
+function createHead() {
+    const todoQeus = document.querySelector('.todoQeus');
+    const todoHead = document.createElement('h1');
+    todoHead.innerHTML = 'TODAY';
+    todoHead.className = 'todoHead';
+    todoQeus.classList.add('hiding');
+    todoinput.classList.add('hiding');
+    todo.appendChild(todoHead);
+}
 function handleTodoSubmit(e) {
     e.preventDefault();
-    createlist(todoinput.value)
+    createHead();
+    createlist(todoinput.value);
     const addList = {
         data: todoinput.value
     }
     datalist.push(addList);
     saveDatalist(datalist);
-    todoinput.value = '';
+    todoinput.value = '';    
 }
 
 function paintingList(currentList) {
+    createHead();
     currentList.forEach(function (data) {
         createlist(data.data);
     })
@@ -50,6 +66,8 @@ function getList() {
     const currentList = localStorage.getItem('currentList');
     if (currentList !== null) {
         paintingList(JSON.parse(currentList));
+    } else if( currentList.length === 0){
+
     }
 }
 
