@@ -3,15 +3,15 @@ const nameInputForm = document.querySelector('.js-name'),
     greetingUser = document.querySelector('.js-user'),
     todoForm = document.querySelector('.js-todo');
 
-let userNameValue = '';
-function saveUser() {
-    localStorage.setItem('currentUser', input.value);
+
+function saveUser(user) {
+    localStorage.setItem('currentUser', user);
 }
 
-function handleSubmit(e) {
+function handleNameInputFormSubmit(e) {
     e.preventDefault();
     painting(input.value);
-    saveUser();
+    saveUser(input.value);
 }
 
 function handleUserSubmit(e) {
@@ -19,29 +19,24 @@ function handleUserSubmit(e) {
     const inputUserName = document.querySelector('.inputUserName');
     const user = localStorage.getItem('currentUser');
     const userValue =  inputUserName.value.replace(/(^\s*)|(\s*$)/g, "") ;
-
     if( userValue === ''){
         createUser(user);
     }else {
         createUser(userValue);
-        localStorage.setItem('currentUser', userValue);
+        saveUser(userValue);
     }
     inputUserName.remove();
 }
 
-function userClickHandle(e) {
-    const userName = greetingUser.querySelector('.userName');
-    const greeting = greetingUser.querySelector('span');
-    const form = document.createElement('form');
-    const inputUserName = document.createElement('input');
-    inputUserName.value = userName.innerHTML;
-    userName.remove();
-    inputUserName.className = 'inputUserName';
-    form.className ="inline";
-    greeting.appendChild(form);
 
-    form.appendChild(inputUserName);
-    form.addEventListener('submit',handleUserSubmit)
+function handleuserClick() {
+    const userName = greetingUser.querySelector('.userName');
+    createNewUserName(userName.innerHTML);
+    userName.remove();   // deleteNewUserName;
+}
+
+function createTodoForm() {
+    todoForm.classList.remove('hiding');
 }
 
 function createGreeting() {
@@ -50,26 +45,41 @@ function createGreeting() {
     greeting.innerHTML = `${(hour >= 18) ? `Good evening` : 
     (hour <18 && hour >= 12) ? `Good afternoon` :
     (hour < 12) ? `Good Morning` : '' }, `;
+
     greetingUser.prepend(greeting);
+}
+
+function createNewUserName(user) {
+    const greeting = greetingUser.querySelector('span');
+    const form = document.createElement('form');
+    const inputUserName = document.createElement('input');
+    inputUserName.value = user;
+
+    form.className ="inline";
+    inputUserName.className = 'inputUserName';
+    greeting.appendChild(form);
+    form.appendChild(inputUserName);
+    form.addEventListener('submit',handleUserSubmit)
 }
 
 function createUser(user) {
     const userName = document.createElement('strong');
     userName.innerHTML = `${user}`
-    userName.className = 'userName';
-
-    //delete nameInputForm
-    nameInputForm.className = 'hiding';
-
-    //create TodoForm...
-    todoForm.classList.remove('hiding');
+    userName.className = 'userName';  
 
     greetingUser.appendChild(userName);
-    userName.addEventListener('click', userClickHandle)
+    userName.addEventListener('click', handleuserClick)
 }
+
+function deleteNameInputForm() {
+    nameInputForm.className = 'hiding';
+}
+
 function painting(user) {
+    deleteNameInputForm();
     createGreeting();
     createUser(user);
+    createTodoForm(); 
 }
 
 function getCurrentUser() {
@@ -81,7 +91,7 @@ function getCurrentUser() {
 
 function init() {
     getCurrentUser();
-    nameInputForm.addEventListener('submit', handleSubmit);
+    nameInputForm.addEventListener('submit', handleNameInputFormSubmit);
 }
 
 init();
