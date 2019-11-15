@@ -12,8 +12,11 @@
 
 <body>
     <header>
+        <form id='js-search' class="search">
+            <input class="search-input">
+        </form>
         <div id="js-weather"></div>
-    </header>
+    </header>   
     <section>
         <h1 class="js-clock">00:00:00</h1>
         <form class="js-name">
@@ -25,12 +28,15 @@
             <h1 class="todoQeus">What is your main focus for today?</h1>
             <input class="js-input">
         </form>
+        
         <ul class="js-list"></ul>
     </section>
+  
     <script src="js/clock.js"></script>
     <script src="js/name.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/search.js"></script>
 </body>
 
 </html>

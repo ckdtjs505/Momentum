@@ -113,12 +113,43 @@ section {
     display: block;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    margin : 0.8rem;
+}
+.search span{
+    color: white;
+    margin-right:0.5rem;  
+}
+
+.search-input{
+    height: 20px;
+    width: 10rem;
+    background: 0;
+    border: 0;
+    color: white;
+    font-size: 120%;  
+    background: url("../asset/magnifying-glass\ \(1\).png") no-repeat scroll ;
+    padding-left:30px;
+}
+.search-input:focus{
+    outline: none;
+    border-bottom: white solid thin;
+    color: white;
+}
+.search-input:hover{
+    border-bottom: white solid thin;
+    color: white;
+}
+
 .weather {
+
     color: white;
     height: 5rem;
     font-size: 1.625em;
     text-align: right;
-    margin : 0.8rem;
+    
 }
 
 .area {
@@ -147,3 +178,4 @@ section {
 .inline{
     display: inline;
 }
+
