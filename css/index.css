@@ -11,7 +11,7 @@ html {
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url("https://images.unsplash.com/photo-1538513633433-8cb0c2f89e56?ixlib=rb-1.2.1&q=99&fm=jpg&crop=entropy&cs=tinysrgb&w=2048&fit=max&ixid=eyJhcHBfaWQiOjcwOTV9");
+    background-image: url("https://source.unsplash.com/1600x900/daily?nature,water");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@ section {
     letter-spacing: -5px;
     font-weight: 500;
     user-select: none;
-    margin: 0;
+    margin-top: 3.5rem;
 }
 
 .js-user {
@@ -73,15 +73,19 @@ section {
 
 .js-todo {
     font-size: 1.3rem;
-    margin-top: 1.5rem;
+    margin-top: 5rem;
     margin-bottom: 0.5rem;
 }
 
+.todoHead {
+    font-size: 1.1em;
+}
 .js-list {
+    list-style: none;
     font-family: 'Nanum Gothic', sans-serif;
     width: 35%;
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-weight: lighter;
+    font-size: 2.5rem;
     margin: 0 auto;
 }
 
@@ -95,9 +99,10 @@ section {
     border-bottom: 2px solid #fff;
     font-weight: 500;
     text-align: center;
-    font-size: 120%;
+    color: white;
+    font-size: 2.5rem;
     line-height: 120%;
-    margin-top: 1rem;
+    margin-top: 0.4rem;
 }
 
 .js-input:focus {
