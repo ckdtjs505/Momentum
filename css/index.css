@@ -31,10 +31,20 @@ ul {
 }
 
 body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url("../asset/overlay-vignette.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 98%;
+    height: 100%;
 }
 section {
     text-align: center;
