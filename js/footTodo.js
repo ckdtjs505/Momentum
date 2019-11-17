@@ -1,15 +1,17 @@
-const footTodo = document.querySelector('#js-todoButton'), 
+const footTodoButton = document.querySelector('#js-todoButton'), 
     settings = document.querySelector('#js-setting');
 
-function handelFootTodo(e) {
-    alert('click Todo');
+function handelfootTodoButton(e) {
+    const footTodolist = document.querySelector('.js-footTodolist');
+    footTodolist.classList.remove('hiding');
+    console.log(footTodolist)
 }
 
 function handelsettings(e) {
     alert('setting Todo');
 }
 function init() {
-    footTodo.addEventListener('click', handelFootTodo);
+    footTodoButton.addEventListener('click', handelfootTodoButton);
     settings.addEventListener('click', handelsettings);
 }
 

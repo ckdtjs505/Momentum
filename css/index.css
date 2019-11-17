@@ -151,14 +151,9 @@ footer button:focus {
     color: white;
 }
 
-.hiding {
-    display: none;
-}
-
 .showing {
     display: block;
 }
-
 
 .search span{
     color: white;
@@ -221,7 +216,7 @@ footer button:focus {
     display: inline;
 }
 
-#js-footTodo {
+.js-footTodolist {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -235,17 +230,28 @@ footer button:focus {
     bottom: 3rem;
 }
 
-#js-footTodo button {
+.js-footTodolist button {
     width: 30%;
     margin: auto;
 }
 
-#js-footTodo header {
+.js-footTodolist header {
+    display: flex;
+    justify-content: space-between;
     font-size: 120%;
     margin: 1rem;
 }
+.js-footTodolist header button {
+    text-align: start;
+    margin: 0;
+    width: 1.5rem;
+    background: 0;
+    border: 0;
+    color: white;
+    font-size: 120%;
+}
 
-#js-footTodo input {
+.js-footTodolist input {
     margin: 1rem;
     background: 0;
     border: 0;
@@ -253,12 +259,12 @@ footer button:focus {
     color: rgba(255, 255, 255, 0.85);
 }
 
-#js-footTodo input:focus {
+.js-footTodolist input:focus {
     outline: none;
     color: rgba(255, 255, 255, 0.85);
 }
 
-#js-footTodo #js-footContent {
+#js-footContent {
     margin-top:1rem;
     height: 6rem;
     color: rgba(255, 255, 255, 0.85);
@@ -271,4 +277,9 @@ footer button:focus {
     border-radius: 2rem;
     color: white;
     height: 2rem;;
+}
+
+
+.hiding {
+    display: none;
 }

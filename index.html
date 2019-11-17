@@ -17,6 +17,7 @@
         </form>
         <div id="js-weather"></div>
     </header>   
+
     <section>
         <h1 class="js-clock">00:00:00</h1>
         <form class="js-name">
@@ -33,6 +34,7 @@
     </section>
   
     
+
     <footer>
         <button id = "js-setting"> 설정 </button>
         <div> 저는 넘어지나 아주 엎드려지지 아니함은 <br>
@@ -40,9 +42,11 @@
         <button id = "js-todoButton"> todo </button>
     </footer>
 
-    <form id="js-footTodo">
+
+    <form class="js-footTodolist hiding" >
         <header>
             <div>Inbox</div>
+            <button>×</button>
         </header>
         
         <div id="js-footContent">
@@ -50,8 +54,11 @@
             <button>New Todo</button>     
         </div>
         <input type="text" placeholder="New Todo">
-        
-    </form>
+    </form> 
+ 
+    
+
+    
     <script src="js/clock.js"></script>
     <script src="js/name.js"></script>
     <script src="js/todo.js"></script>
