@@ -221,3 +221,54 @@ footer button:focus {
     display: inline;
 }
 
+#js-footTodo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    width: 320px;
+    height: auto;
+    color :white;
+    background-color: black;
+    border-radius: 1rem;
+    right: 1rem;
+    bottom: 3rem;
+}
+
+#js-footTodo button {
+    width: 30%;
+    margin: auto;
+}
+
+#js-footTodo header {
+    font-size: 120%;
+    margin: 1rem;
+}
+
+#js-footTodo input {
+    margin: 1rem;
+    background: 0;
+    border: 0;
+    font-size: 100%;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#js-footTodo input:focus {
+    outline: none;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#js-footTodo #js-footContent {
+    margin-top:1rem;
+    height: 6rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#js-footContent button {
+    margin-top: 1rem;
+    background-color: gray;
+    border: 0;
+    border-radius: 2rem;
+    color: white;
+    height: 2rem;;
+}
