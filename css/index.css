@@ -283,6 +283,9 @@ footer button:focus {
     height: 2rem;;
 }
 
+.js-inputTodo {
+    width: 90%;
+}
 
 .hiding {
     display: none;

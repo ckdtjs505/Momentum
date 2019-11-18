@@ -43,7 +43,7 @@
     </footer>
 
 
-    <form class="js-footTodolist hiding" >
+    <div class="js-footTodolist hiding" >
         <header>
             <div>Inbox</div>
             <button class="js-closeFootTodoButton">×</button>
@@ -54,10 +54,12 @@
                 <div>Add a todo to get started</div>
                 <button>New Todo</button>     
             </div>
-            <!-- <ul id = "js-todolist"></ul> -->
+            <ol id = "js-todolist" class="hiding"></ol>
         </div>
-        <input class="js-inputTodo hiding" type="text" placeholder="New Todo">
-    </form> 
+        <form>
+            <input class="js-inputTodo hiding" placeholder="New Todo">
+        </form>
+    </div> 
  
     
 
