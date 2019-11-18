@@ -1,6 +1,7 @@
 const footTodoButton = document.querySelector('#js-todoButton'), 
     settings = document.querySelector('#js-setting');
 
+let currentFootTodolist = [];
 function handelfootTodoButton(e) {
     const currentFootData = localStorage.getItem('currentFootData');
      
@@ -25,29 +26,66 @@ function handelfootTodoButton(e) {
         inputTodo.classList.remove('hiding');
 
         let todolist = document.querySelector('#js-todolist');
-        const currentlistData = localStorage.getItem('currentFootData');
-        const datali = document.createElement('li'); 
-        datali.innerText = currentlistData;
-        todolist.appendChild(datali);
-        todolist.classList.remove('hiding');
-    }else {
+        todolist.querySelectorAll('*').forEach( n => n.remove());
+        const currentlistData = JSON.parse(localStorage.getItem('currentFootData'));
         
-    
+        currentlistData.forEach(function(data) {
+            const datali = document.createElement('li'); 
+            datali.innerText = data.data;
+            todolist.appendChild(datali);
+        }) 
+        todolist.classList.remove('hiding');
+
         inputTodo.parentElement.addEventListener('submit', function HandleinputTodo(e) {
             e.preventDefault();
             askTodo.classList.add('hiding');
-            localStorage.setItem('currentFootData', inputTodo.value);
-            inputTodo.value = '';
-
             
-            // painting 
+            const data = {
+                data : inputTodo.value
+            }
+            
+            inputTodo.value = ''; 
+            if(data.data !== ''){
+                currentFootTodolist.push(data);
+                localStorage.setItem('currentFootData', JSON.stringify(currentFootTodolist));
+            }
+            //painting
             let todolist = document.querySelector('#js-todolist');
-            const currentlistData = localStorage.getItem('currentFootData');
-            const datali = document.createElement('li'); 
-            datali.innerText = currentlistData;
-            todolist.appendChild(datali);
-            todolist.classList.remove('hiding');
+            todolist.querySelectorAll('*').forEach( n => n.remove());
+            const currentlistData = JSON.parse(localStorage.getItem('currentFootData'));
             
+            currentlistData.forEach(function(data) {
+                const datali = document.createElement('li'); 
+                datali.innerText = data.data;
+                todolist.appendChild(datali);
+            }) 
+            todolist.classList.remove('hiding');
+        })
+
+    }else {
+        inputTodo.parentElement.addEventListener('submit', function HandleinputTodo(e) {
+            e.preventDefault();
+            askTodo.classList.add('hiding');
+            
+            const data = {
+                data : inputTodo.value
+            }
+            
+            inputTodo.value = ''; 
+            currentFootTodolist.push(data);
+            localStorage.setItem('currentFootData', JSON.stringify(currentFootTodolist));
+            
+            //painting
+            let todolist = document.querySelector('#js-todolist');
+            todolist.querySelectorAll('*').forEach( n => n.remove());
+            const currentlistData = JSON.parse(localStorage.getItem('currentFootData'));
+            
+            currentlistData.forEach(function(data) {
+                const datali = document.createElement('li'); 
+                datali.innerText = data.data;
+                todolist.appendChild(datali);
+            }) 
+            todolist.classList.remove('hiding');
             
         })
     
@@ -55,8 +93,6 @@ function handelfootTodoButton(e) {
             e.preventDefault();
             inputTodo.classList.remove('hiding');
         })
-
-        
     }
 }
 
@@ -65,7 +101,6 @@ function handelsettings(e) {
 }
 
 function init() {
-
     footTodoButton.addEventListener('click', handelfootTodoButton);
     settings.addEventListener('click', handelsettings);
 }
