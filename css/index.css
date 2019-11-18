@@ -264,9 +264,13 @@ footer button:focus {
     color: rgba(255, 255, 255, 0.85);
 }
 
+#js-askTodo {
+    height: 6rem;
+}
+
 #js-footContent {
     margin-top:1rem;
-    height: 6rem;
+    height: auto;
     color: rgba(255, 255, 255, 0.85);
 }
 
