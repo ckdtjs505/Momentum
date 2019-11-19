@@ -1,5 +1,5 @@
 const footTodoButton = document.querySelector('#js-todoButton'), 
-    settings = document.querySelector('#js-setting'),
+    qt = document.querySelector('#js-qt'),
     inputTodo = document.querySelector('.js-inputTodo'),
     askTodo = document.querySelector('#js-askTodo');
 
@@ -134,7 +134,7 @@ function handelsettings(e) {
 
 function init() {
     footTodoButton.addEventListener('click', handelfootTodoButton);
-    settings.addEventListener('click', handelsettings);
+    qt.addEventListener('click', handelsettings);
 }
 
 init();

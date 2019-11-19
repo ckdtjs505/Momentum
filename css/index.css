@@ -291,6 +291,7 @@ footer button:focus {
 }
 
 #js-todolist li{
+    cursor: default;
     list-style: none;
     text-align: left;
     margin: 0;
@@ -304,10 +305,19 @@ footer button:focus {
     width: 90%;
 }
 
+#js-todoButton {
+    cursor: pointer;
+}
+
+#js-qt {
+    cursor: pointer; 
+}
+
 .hiding {
     display: none;
 }
 
 .checkClicked {
     text-decoration: line-through;
+    color : gray;
 }
