@@ -8,7 +8,8 @@ function HandleinputTodo(e) {
     e.preventDefault();
     askTodo.classList.add('hiding');
     const data = {
-        data : inputTodo.value
+        data : inputTodo.value,
+        value : false
     }
     
     inputTodo.value = ''; 
@@ -26,9 +27,39 @@ function paintingList(Data) {
     todolist.querySelectorAll('*').forEach( n => n.remove());
     
     Data.forEach(function(data) {
+        const checkbox = document.createElement('input')
         const datali = document.createElement('li'); 
+        checkbox.type ="checkbox";
+        if(data.value === true){
+            datali.className = "checkClicked";
+            checkbox.checked = true;
+        }else {
+            datali.className = "";
+            checkbox.checked = false;
+        }
+
         datali.innerText = data.data;
         todolist.appendChild(datali);
+        datali.prepend(checkbox);
+
+        checkbox.addEventListener('click', function handleCheckbox() {
+            if(checkbox.parentNode.className === ""){
+                checkbox.parentNode.className = "checkClicked"; 
+                currentFootTodolist.forEach(function (data) {
+                    if(data.data === checkbox.nextSibling.data)
+                        data.value = true;
+                })
+            } else {
+                checkbox.parentNode.className = ""; 
+                currentFootTodolist.forEach(function (data) {
+                    if(data.data === checkbox.nextSibling.data)
+                        data.value = false;
+                })
+            }
+           
+            localStorage.setItem('currentFootData', JSON.stringify(currentFootTodolist));
+        
+        })
     }) 
     todolist.classList.remove('hiding');
 }
@@ -57,11 +88,7 @@ function handelfootTodoButton(e) {
         currentFootTodolist = currentlistData;
 
         // currentlistData 데이터 그리기
-        currentlistData.forEach(function(data) {
-            const datali = document.createElement('li'); 
-            datali.innerText = data.data;
-            todolist.appendChild(datali);
-        }) 
+        paintingList(currentlistData);
 
         // todolist datalist를 html 보이기 
         todolist.classList.remove('hiding');
@@ -75,8 +102,6 @@ function handelfootTodoButton(e) {
             inputTodo.classList.add('hiding');
             footTodolist.classList.add('hiding');      
         })
-
-       
 
     }else {
         // 데이터 없을 시 

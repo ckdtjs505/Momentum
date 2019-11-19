@@ -240,7 +240,9 @@ footer button:focus {
     justify-content: space-between;
     font-size: 120%;
     margin: 1rem;
-}
+    border-bottom: white 0.05rem solid;
+    /* background-color: red; */
+} 
 .js-footTodolist header button {
     text-align: start;
     margin: 0;
@@ -269,7 +271,6 @@ footer button:focus {
 }
 
 #js-footContent {
-    margin-top:1rem;
     height: auto;
     color: rgba(255, 255, 255, 0.85);
 }
@@ -280,7 +281,23 @@ footer button:focus {
     border: 0;
     border-radius: 2rem;
     color: white;
-    height: 2rem;;
+    height: 2rem;
+}
+
+#js-todolist {
+    text-align: left;
+    padding:  0 1rem 0 1rem;
+    margin: 0;
+}
+
+#js-todolist li{
+    list-style: none;
+    text-align: left;
+    margin: 0;
+}
+
+#js-todolist li input{
+    margin: 0.3rem 0.7rem 0.3rem 0.7rem;
 }
 
 .js-inputTodo {
@@ -289,4 +306,8 @@ footer button:focus {
 
 .hiding {
     display: none;
+}
+
+.checkClicked {
+    text-decoration: line-through;
 }
