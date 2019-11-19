@@ -2,6 +2,7 @@ const footTodoButton = document.querySelector('#js-todoButton'),
     settings = document.querySelector('#js-setting'),
     inputTodo = document.querySelector('.js-inputTodo'),
     askTodo = document.querySelector('#js-askTodo');
+
 let currentFootTodolist = [];
 
 function HandleinputTodo(e) {
@@ -58,7 +59,6 @@ function paintingList(Data) {
             }
            
             localStorage.setItem('currentFootData', JSON.stringify(currentFootTodolist));
-        
         })
     }) 
     todolist.classList.remove('hiding');
@@ -129,7 +129,7 @@ function handelfootTodoButton(e) {
 }
 
 function handelsettings(e) {
-    alert('setting Todo');
+    window.location.href ='https://sum.su.or.kr:8888/bible/today';
 }
 
 function init() {
