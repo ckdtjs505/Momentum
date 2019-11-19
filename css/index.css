@@ -243,7 +243,13 @@ footer button:focus {
     border-bottom: white 0.05rem solid;
     /* background-color: red; */
 } 
+
+.js-footTodolist header div{
+    cursor: default;
+} 
+
 .js-footTodolist header button {
+    cursor: pointer;
     text-align: start;
     margin: 0;
     width: 1.5rem;
