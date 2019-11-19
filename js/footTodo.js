@@ -30,6 +30,8 @@ function paintingList(Data) {
     Data.forEach(function(data) {
         const checkbox = document.createElement('input')
         const datali = document.createElement('li'); 
+        const button = document.createElement('button');
+        
         checkbox.type ="checkbox";
         if(data.value === true){
             datali.className = "checkClicked";
@@ -38,10 +40,19 @@ function paintingList(Data) {
             datali.className = "";
             checkbox.checked = false;
         }
-
+        button.innerText = 'x'
         datali.innerText = data.data;
         todolist.appendChild(datali);
         datali.prepend(checkbox);
+        datali.appendChild(button);
+
+        button.addEventListener('click', function handelClickEvent(e) {
+            button.parentNode.remove();
+            currentFootTodolist = currentFootTodolist.filter( function (data) {
+                return data.data !== button.parentNode.textContent.slice(0,-1);
+            })
+            localStorage.setItem('currentFootData', JSON.stringify(currentFootTodolist));
+        })
 
         checkbox.addEventListener('click', function handleCheckbox() {
             if(checkbox.parentNode.className === ""){

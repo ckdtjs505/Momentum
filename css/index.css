@@ -303,6 +303,22 @@ footer button:focus {
     margin: 0;
 }
 
+#js-todolist li button{
+    display: none;
+}
+
+#js-todolist li:hover button{
+    display: inline-block;
+    height: auto;
+    border-radius: 0.5rem;
+    width: 1rem;
+    margin: 0;
+}
+
+#js-todolist li:hover button:hover{
+    cursor: pointer;
+}
+
 #js-todolist li input{
     margin: 0.3rem 0.7rem 0.3rem 0.7rem;
 }
