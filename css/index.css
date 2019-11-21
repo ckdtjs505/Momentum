@@ -4,6 +4,15 @@
    - <section/>   js user 의 값때문에 줄바꿈 되는 현상을 피하고자.  
 */
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 html {
     font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
@@ -27,7 +36,6 @@ ul {
     display: inline-block;
     list-style: decimal;
     padding-left: 0px;
-    /* border: red solid; */
 }
 
 body {
@@ -128,6 +136,9 @@ footer button:focus {
     font-weight: lighter;
     font-size: 2.5rem;
     margin: 0 auto;
+}
+.js-list li {
+    animation: fadeIn .5s linear;
 }
 
 
