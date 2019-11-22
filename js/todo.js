@@ -26,10 +26,12 @@ function handleClick(e) {
 
 function createlist(value) {
     const li = document.createElement('li');
+    const span = document.createElement('span');
     const btn = document.createElement('button');
-    li.innerHTML = value;
-    btn.innerHTML = 'x';
+    span.innerHTML = value;
+    btn.innerHTML = '×';
     list.appendChild(li);
+    li.appendChild(span);
     li.appendChild(btn);
     btn.addEventListener('click', handleClick);
 }

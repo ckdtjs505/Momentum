@@ -138,9 +138,27 @@ footer button:focus {
     margin: 0 auto;
 }
 .js-list li {
-    animation: fadeIn .5s linear;
+    cursor: default;
+    animation: fadeIn .5s ;
 }
 
+.js-list li button {
+    background : 0;
+    border: white ;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+    border-radius: 0.25rem;
+    outline: 0;
+    color:  white;
+}
+
+.js-list li button:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem ;
+}
 
 .js-input {
     display: block;
