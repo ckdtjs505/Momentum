@@ -48,9 +48,15 @@ function paintingList(Data) {
 
         button.addEventListener('click', function handelClickEvent(e) {
             button.parentNode.remove();
+            
             currentFootTodolist = currentFootTodolist.filter( function (data) {
                 return data.data !== button.parentNode.textContent.slice(0,-1);
             })
+            if(currentFootTodolist.length === 0){
+                askTodo.classList.remove('hiding'); 
+                inputTodo.classList.add('hiding');
+            }
+                
             localStorage.setItem('currentFootData', JSON.stringify(currentFootTodolist));
         })
 
@@ -82,7 +88,7 @@ function handelfootTodoButton(e) {
     const askTodoButton = askTodo.querySelector('button');
     
     // 데이터가 있을 시     
-    if(currentFootData !== null){
+    if(currentFootData !== null && currentFootData.length !== 2){
         // 데이터가 있으므로 물어보는 html 숨기기
         askTodo.classList.add('hiding');
 
