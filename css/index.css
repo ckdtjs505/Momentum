@@ -8,6 +8,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -20,7 +21,7 @@ html {
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url("https://source.unsplash.com/1600x900/daily?nature,water");
+    background-image: url("https://picsum.photos/1600/900");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -54,6 +55,7 @@ body {
     justify-content: space-between;
     height: 100%;
 }
+
 section {
     text-align: center;
     position: absolute;
@@ -70,14 +72,14 @@ section {
 header {
     display: flex;
     justify-content: space-between;
-    margin : 0.8rem;
+    margin: 0.8rem;
 }
 
 footer {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    margin : 0.8rem;
+    margin: 0.8rem;
     color: white;
 }
 
@@ -89,7 +91,7 @@ footer button {
 }
 
 footer button:focus {
-   outline: none;
+    outline: none;
 }
 
 .js-clock {
@@ -116,7 +118,7 @@ footer button:focus {
     width: 480px;
 }
 
-.userName:hover{
+.userName:hover {
     border-bottom: gold solid;
 }
 
@@ -129,6 +131,7 @@ footer button:focus {
 .todoHead {
     font-size: 1.1em;
 }
+
 .js-list {
     list-style: none;
     font-family: 'Nanum Gothic', sans-serif;
@@ -137,27 +140,28 @@ footer button:focus {
     font-size: 2.5rem;
     margin: 0 auto;
 }
+
 .js-list li {
     cursor: default;
-    animation: fadeIn .5s ;
+    animation: fadeIn .5s;
 }
 
 .js-list li button {
-    background : 0;
-    border: white ;
+    background: 0;
+    border: white;
     width: 2rem;
     height: 2rem;
     font-size: 2rem;
     margin-left: 0.5rem;
     border-radius: 0.25rem;
     outline: 0;
-    color:  white;
+    color: white;
 }
 
 .js-list li button:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 1rem ;
+    border-radius: 1rem;
 }
 
 .js-input {
@@ -184,27 +188,29 @@ footer button:focus {
     display: block;
 }
 
-.search span{
+.search span {
     color: white;
-    margin-right:0.5rem;  
+    margin-right: 0.5rem;
 }
 
-.search-input{
+.search-input {
     height: 20px;
     width: 10rem;
     background: 0;
     border: 0;
     color: white;
-    font-size: 120%;  
-    background: url("../asset/magnifying-glass\ \(1\).png") no-repeat scroll ;
-    padding-left:30px;
+    font-size: 120%;
+    background: url("../asset/magnifying-glass\ \(1\).png") no-repeat scroll;
+    padding-left: 30px;
 }
-.search-input:focus{
+
+.search-input:focus {
     outline: none;
     border-bottom: white solid thin;
     color: white;
 }
-.search-input:hover{
+
+.search-input:hover {
     border-bottom: white solid thin;
     color: white;
 }
@@ -215,7 +221,7 @@ footer button:focus {
     height: 5rem;
     font-size: 1.625em;
     text-align: right;
-    
+
 }
 
 .area {
@@ -223,7 +229,7 @@ footer button:focus {
 }
 
 
-.inputUserName{
+.inputUserName {
     margin: 0 auto;
     width: 13rem;
     background: 0;
@@ -232,16 +238,17 @@ footer button:focus {
     font-weight: 500;
     text-align: center;
     font-size: 80%;
-    color:white;
+    color: white;
     line-height: 120%;
 
 }
+
 .inputUserName:focus {
     outline: none;
     color: white;
 }
 
-.inline{
+.inline {
     display: inline;
 }
 
@@ -252,7 +259,7 @@ footer button:focus {
     text-align: center;
     width: 320px;
     height: auto;
-    color :white;
+    color: white;
     background-color: black;
     border-radius: 1rem;
     right: 1rem;
@@ -271,11 +278,11 @@ footer button:focus {
     margin: 1rem;
     border-bottom: white 0.05rem solid;
     /* background-color: red; */
-} 
+}
 
-.js-footTodolist header div{
+.js-footTodolist header div {
     cursor: default;
-} 
+}
 
 .js-footTodolist header button {
     cursor: pointer;
@@ -321,22 +328,22 @@ footer button:focus {
 
 #js-todolist {
     text-align: left;
-    padding:  0 1rem 0 1rem;
+    padding: 0 1rem 0 1rem;
     margin: 0;
 }
 
-#js-todolist li{
+#js-todolist li {
     cursor: default;
     list-style: none;
     text-align: left;
     margin: 0;
 }
 
-#js-todolist li button{
+#js-todolist li button {
     display: none;
 }
 
-#js-todolist li:hover button{
+#js-todolist li:hover button {
     display: inline-block;
     height: auto;
     border-radius: 0.5rem;
@@ -344,11 +351,11 @@ footer button:focus {
     margin: 0;
 }
 
-#js-todolist li:hover button:hover{
+#js-todolist li:hover button:hover {
     cursor: pointer;
 }
 
-#js-todolist li input{
+#js-todolist li input {
     margin: 0.3rem 0.7rem 0.3rem 0.7rem;
 }
 
@@ -361,7 +368,7 @@ footer button:focus {
 }
 
 #js-qt {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .hiding {
@@ -370,5 +377,5 @@ footer button:focus {
 
 .checkClicked {
     text-decoration: line-through;
-    color : gray;
+    color: gray;
 }
